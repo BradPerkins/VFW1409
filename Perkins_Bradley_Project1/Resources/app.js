@@ -3,7 +3,7 @@ Titanium.UI.setBackgroundColor('#000');
 
 // create tab group
 var tabGroup = Titanium.UI.createTabGroup();
-
+// test commit 2
 
 //
 // create base UI tab and root window
