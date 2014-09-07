@@ -3779,3 +3779,12 @@ java.lang.IllegalStateException: No match available
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2014-09-06 21:31:20.636
+!MESSAGE There are no Android devices connected
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2014-09-06 21:49:39.970
+!MESSAGE There are no Android devices connected
+
+!ENTRY com.appcelerator.titanium.android.core 4 0 2014-09-06 21:49:43.860
+!MESSAGE There are no Android devices connected
