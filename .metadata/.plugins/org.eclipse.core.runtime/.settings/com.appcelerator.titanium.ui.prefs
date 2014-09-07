@@ -1,7 +1,13 @@
 =run
-LAST_LAUNCH_TIMESTAMP=1409687513287
+LAST_LAUNCH_TIMESTAMP=1410024716512
 Perkins_Bradley_Project1\:launchMode=run
-Perkins_Bradley_Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
+Perkins_Bradley_Project1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
+Perkins_Bradley_Project_1\:launchMode=run
+Perkins_Bradley_Project_1\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 eclipse.preferences.version=1
+practice\ 1\:launchMode=run
+practice\ 1\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
+practice1\:launchMode=run
+practice1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (4 inch)
 preference.show.console.onError=true
 preference.studio.perspective.version=103

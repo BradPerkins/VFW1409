@@ -1,0 +1,59 @@
+
+Ti.UI.setBackgroundColor("white");
+
+var mainWin = Ti.UI.createWindow({
+	title: "Top 5 Comics",
+	backgroundColor: "#6897bb",
+});
+
+var view1 = Ti.UI.createView({
+	backgroundColor: "white",
+	borderRadius: 2,
+	borderWidth: 1,
+	top: 20,
+	left: 20,
+	right: 20,
+	bottom: "15%"
+});
+
+var label1 = Ti.UI.createLabel({
+	text: " Top 5 Comics ",
+	color: "black",
+	font: {fontSize: 20},
+	backgroundColor: "white",
+	borderColor: "black",
+	borderRadius: 5,
+	borderWidth: 2
+});
+
+var prevButton = Ti.UI.createView({
+	backgroundColor: "white",
+	top: "80%",
+	bottom: 20,
+	borderRadius: 5
+	
+});
+
+
+mainWin.add(view1);
+view1.add(label1);
+mainWin.open();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
