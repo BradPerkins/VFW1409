@@ -1,0 +1,143 @@
+
+var marvel = [{title: "Spider-Man", description: "spidey"}, {title: "Thor", description: "thor"}, {title: "Captain America", description: "cap"}, {title: "Daredevil", description: "dd"}, {title: "Hulk", description: "hulk"}];
+	
+var dc = [{title: "Batman", description: "bat"}, {title: "Superman", description: "sup"}, {title: "Flash", description: "flash"}, {title: "Green Lantern", description: "lant"}, {title: "Green Arrow", description: "arrow"}];
+	
+
+var win1 = Ti.UI.createWindow({
+	backgroundColor: "#202e53" 
+});
+
+var titleBar = Ti.UI.createView({
+	height: 80,
+	backgroundColor: "white",
+	top: 20
+});
+
+var spacer1 = Ti.UI.createView({
+	height: 20,
+	backgroundColor: "#d80c0c",
+	top: titleBar.height + titleBar.top
+});
+
+var mainTitle = Ti.UI.createLabel({
+	text: "Super Heroes",
+	font: {fontSize: 40, fontStyle: "Helvetica", fontWeight: "bold"},
+	textAlign: "center"
+});
+
+var heroes = Ti.UI.createTableView({
+	top: spacer1.height + spacer1.top
+});
+
+
+if(Ti.Platform.name === "iPhone OS"){
+	heroes.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+};
+
+var marvelSection = Ti.UI.createTableViewSection({
+	headerTitle: "Marvel Heroes",
+	footerTitle: "Nuff Said,"
+});
+
+var dcSection = Ti.UI.createTableViewSection({
+	headerTitle: "DC Heroes",
+	footerTitle: "The new 52"
+});
+
+var getInfo = function(){
+	var infoWin = Ti.UI.createWindow({
+		backgroundColor: "white",
+		
+	});
+	
+	var infoTitleBar = Ti.UI.createView({
+		height: 80,
+		backgroundColor: "white",
+		top: 20
+	});
+	
+	var infoSpacer1 = Ti.UI.createView({
+		height: 20,
+		backgroundColor: "#d80c0c",
+		top: infoTitleBar.height + infoTitleBar.top
+	});
+	
+	var infoTitle = Ti.UI.createLabel({
+		text: this.title,
+		font: {fontSize: 40, fontStyle: "Helvetica", fontWeight: "bold"},
+		textAlign: "center"
+	});
+	
+	var originText = Ti.UI.createLabel({
+		text: this.desc,
+		font: {fontSize: 25, fontStyle: "Helvetica"},
+		top: infoSpacer1.height + infoSpacer1.top + 20,
+		left: 10,
+		right: 10,	
+	});
+	
+	var closeButton = Ti.UI.createLabel({
+		text: "Close",
+		backgroundColor: "#e3e3e3",
+		color: "#white",
+		height: 50,
+		font: {fontSize: 15, fontFamily: "Helvetica"},
+		width: "100%",
+		bottom: 0,
+		textAlign: "center"
+
+	});
+	
+	var closeWin = function(){
+		infoWin.close({transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
+	};
+	
+	closeButton.addEventListener("click", closeWin);
+	
+	infoTitleBar.add(infoTitle);
+	infoWin.add(infoTitleBar, infoSpacer1, originText, closeButton);
+	
+	infoWin.open({transition: Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT});
+};
+
+for(var i=0,j=marvel.length; i<j; i++){
+	var row = Ti.UI.createTableViewRow({
+		title: marvel[i].title,
+		desc: marvel[i].description,
+		hasChild: true
+	});
+	
+	if(Ti.Platform.name === "iPhone OS"){
+	row.hasChild = false;
+	row.hasDetail = true;
+}; 
+
+	marvelSection.add(row);
+	row.addEventListener("click", getInfo);
+};
+
+for(var i=0,j=dc.length; i<j; i++){
+	var row = Ti.UI.createTableViewRow({
+		title: dc[i].title,
+		desc: dc[i].description,
+		hasChild: true
+		
+	});
+	
+	if(Ti.Platform.name === "iPhone OS"){
+	row.hasChild = false;
+	row.hasDetail = true;
+};
+	
+	dcSection.add(row);
+	row.addEventListener("click", getInfo);
+};
+
+var heroSection = [marvelSection, dcSection];
+
+heroes.setData(heroSection);
+
+titleBar.add(mainTitle);
+win1.add(titleBar, spacer1, heroes, closeWin);
+win1.open();

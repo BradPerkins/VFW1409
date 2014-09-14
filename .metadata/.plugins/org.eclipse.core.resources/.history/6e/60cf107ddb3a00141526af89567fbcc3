@@ -1,0 +1,188 @@
+//JSON Object
+var comicHero = {
+	"heroes":{
+		"header": "Marvel",
+		"footer": "Nuff said",
+		"good": [
+			{
+				"name": "Spider-Man",
+				"description": "1",
+			},
+			{
+				"name": "Thor",
+				"description": "as",
+				
+			},
+			{
+				"name": "Iron Man",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Captain America",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Daredevil",
+				"description": "As a teena",
+				
+			}
+		]
+	},
+	"villains":{
+		"header": "DC",
+		"footer": "Nuff said",
+		"evil": [
+			{
+				"name": "Batman",
+				"description": "As a teenage boy, Peter Parker was bitten by a radioactive spider while attending a science experiment.  He was then given the spiders proportional strenght and agility, and the ability to stick to almost any surface.  He also gained a spider sense to give him an early warning of danger.",
+			},
+			{
+				"name": "Superman",
+				"description": "as",
+				
+			},
+			{
+				"name": "Flash",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Green Lantern",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Green Arrow",
+				"description": "As a teena",
+				
+			}
+		]
+	}
+};
+
+var window1 = Ti.UI.createWindow({
+	title: "Super Heroes",
+	backgroundColor: "gray" 
+});
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: window1
+});
+
+var getDetail = function(){
+	var detailWin = Ti.UI.createWindow({
+		title: this.text,
+		backgroundColor: "white"
+	});
+	var detailText = Ti.UI.createLabel({
+		text: this.details,
+		top: 30,
+		left: 15,
+		right: 15,
+	});
+	detailWin.add(detailText);
+	navWin.openWindow(detailWin);
+};
+
+/*
+var titleBar = Ti.UI.createView({
+	height: 80,
+	backgroundColor: "white",
+	top: 20
+});
+
+var spacer1 = Ti.UI.createView({
+	height: 20,
+	backgroundColor: "#d80c0c",
+	top: titleBar.height + titleBar.top
+});
+
+var mainTitle = Ti.UI.createLabel({
+	text: "Super Heroes",
+	font: {fontSize: 40, fontStyle: "Helvetica", fontWeight: "bold"},
+	textAlign: "center"
+});
+
+var heroes = Ti.UI.createTableView({
+	top: spacer1.height + spacer1.top
+});
+
+if(Ti.Platform.name === "iPhone OS"){
+	heroes.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+};
+
+*/
+var data = function(){
+	var spacing = 80;
+	for(n in comicHero){
+		var headerLabel = Ti.UI.createLabel({
+			text: comicHero[n].header,
+			left: 15,
+			right: 15,
+			top: spacing,
+			height: 25,
+			backgroundColor: '#333',
+			font: {fontSize: 22, fontStyle: "Helvetica"},
+			color: "#fafafa",
+		});
+		
+		spacing = headerLabel.top + headerLabel.height + 10;
+		console.log(spacing);
+		
+		for(n in comicHero){
+		var footerLabel = Ti.UI.createLabel({
+			text: comicHero[n].footer,
+			left: 15,
+			right: 15,
+			top: spacing,
+			height: 25,
+			backgroundColor: '#333',
+			font: {fontSize: 22, fontStyle: "Helvetica"},
+			color: "#fafafa",
+		});
+		
+		spacing = headerLabel.top + headerLabel.height + 10;
+		console.log(spacing);
+		
+		//labels created
+		for(m in comicHero[n].footer){
+			var itemLabel = Ti.UI.createLabel({
+				text: comicHero[n].footer[m].name,  // title 
+				details: comicHero[n].footer[m].description,
+				left: 30,
+				right: 15,
+				top: spacing,
+				height: 25,
+				backgroundColor:"#ffffff",
+				font: {fontSize: 25, fontStyle: "Helvetica"},
+				color: "#333",
+				
+			});
+			window1.add(itemLabel);
+			spacing = itemLabel.top + itemLabel.height + 10;
+			itemLabel.addEventListener("click", getDetail);
+		}
+		window1.add(headerLabel);
+		spacing = itemLabel.top + itemLabel.height + 40;
+	}
+};
+
+data();
+
+navWin.open();
+
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

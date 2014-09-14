@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Move 1 resources to &apos;Resources&apos;" description="Move 1 resources to &apos;Resources&apos;" destination="Resources" element1="/Perkins_Bradley_Project2/Resources/pratice.js" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1410484624872" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;practice1/Resources/pratice.js&apos; to &apos;app.js&apos;" description="Rename resource &apos;pratice.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Resources/pratice.js" name="app.js" stamp="1410484711384" updateReferences="true"/>
+</session>

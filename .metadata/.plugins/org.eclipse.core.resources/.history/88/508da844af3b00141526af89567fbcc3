@@ -1,0 +1,190 @@
+
+
+//JSON Object
+var comicHero = {
+	"heroes":{
+		"header": "Super Heroes",
+		"footer": "Nuff Said",
+		"good": [
+			{
+				"name": "Spider-Man",
+				"origin": "Bitten by radio active spider",	
+			},
+			{
+				"name": "Daredevil",
+				"origin": "Blinded by a radioactive substance that falls from an oncoming vehicle.",
+			},
+			
+		] 
+	},
+	"villains":{
+		"header": "Evil Villains",
+		"footer": "Nuff Said",
+		"evil": [
+			{
+				"name": "Green Goblin",
+				"origin": "Took the green goblin formula to acquire superhuman strength, increased speed, reflexes, endurance, and healing rate.",	
+			},
+			{
+				"name": "Doctor Octopus",
+				"origin": "Doctor Octopus has acquired the mental ability over the four electrically powered arms that are attached to a stainless-steel harness encompassing his lower torso. ",	
+			},
+		]
+	}
+};
+
+
+//Main window
+var window1 = Ti.UI.createWindow({
+	title: "Heroes and Villains",
+	backgroundColor: "#202e53", //blue
+});
+
+
+// needed for navigation window
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: window1
+});
+
+// origin information window function
+var getOrigin = function(){
+	var detailWin = Ti.UI.createWindow({
+		title: this.text,
+		backgroundColor: "white" // 
+	});
+	var detailText = Ti.UI.createLabel({
+		text: this.details,
+		top: 30,
+		left: 15,
+		right: 15,
+	});
+	detailWin.add(detailText);
+	navWin.openWindow(detailWin);
+};
+
+/*
+var titleBar = Ti.UI.createView({
+	height: 80,
+	backgroundColor: "white",
+	top: 10
+});
+*/
+/*
+var spacer1 = Ti.UI.createView({
+	height: 20,
+	backgroundColor: "#d80c0c",//red
+	top: titleBar.height + titleBar.top
+});
+
+
+var mainTitle = Ti.UI.createLabel({
+	text: "Heroes and Villains",
+	font: {fontSize: 25, fontStyle: "Helvetica", fontWeight: "bold"},
+	textAlign: "center"
+});
+*/
+
+var heroesTV1 = Ti.UI.createTableView({
+
+
+	var data1 = function(){
+		
+		var spacing = 10;
+		
+		for(n in comicHero){
+			var headerLabel = Ti.UI.createLabel({
+				text: comicHero[n].header,
+				left: 15,
+				right: 15,
+				top: spacing,
+				height: 25,
+				backgroundColor: 'white',
+				font: {fontSize: 25, fontStyle: "Helvetica"},
+				color: "black",
+			});
+			
+			spacing = headerLabel.top + headerLabel.height + 10;
+			
+		
+			
+			//hero names
+			//labels created
+			//for in loop
+			for(m in comicHero[n].good){
+				var itemLabel = Ti.UI.createLabel({
+					text: comicHero[n].good[m].name,  // names
+					details: comicHero[n].good[m].origin, // origin
+					left: 30,
+					right: 15,
+					top: spacing,
+					height: 25,
+					backgroundColor:"white",
+					borderWidth: 1,
+					font: {fontSize: 20, fontStyle: "Helvetica"},
+					color: "black",//text color
+					
+				});
+				window1.add(itemLabel);
+				spacing = itemLabel.top + itemLabel.height + 10;
+				itemLabel.addEventListener("click", getOrigin);
+				
+			
+			
+				window1.add(headerLabel);
+				
+				spacing = itemLabel.top + itemLabel.height +10;// space between header and items
+			}		
+				
+			//evil names
+			
+			
+			for(m in comicHero[n].evil){
+				var itemLabel = Ti.UI.createLabel({
+					text: comicHero[n].evil[m].name,  // names
+					details: comicHero[n].evil[m].origin, // origin
+					left: 30,
+					right: 15,
+					top: spacing,
+					height: 25,
+					backgroundColor:"#ffffff",
+					font: {fontSize: 20, fontStyle: "Helvetica"},
+					color: "#333333",
+					
+				});
+				
+				
+				window1.add(itemLabel);
+				spacing = itemLabel.top + itemLabel.height + 10;// space between each item example, doc oct, goblin
+				itemLabel.addEventListener("click", getOrigin);
+				
+			
+			window1.add(headerLabel);
+			spacing = headerLabel.top + headerLabel.height + 40;
+			}
+			
+			
+			
+});
+
+
+data1();
+
+navWin.open();
+window1.add(heroesTV1);
+
+	
+
+//titleBar.add(mainTitle);
+//window1.add(spacer1);
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+var marvel = [
+		{title: "Spider-Man", description: "spidey"}, 
+		{title: "Thor", description: "thor"}, 
+		{title: "Captain America", description: "cap"}, 
+		{title: "Daredevil", description: "dd"}, 
+		{title: "Hulk", description: "hulk"}
+	];
+	
+var dc = [
+		{title: "Batman", description: "bat"}, 
+		{title: "Superman", description: "sup"}, 
+		{title: "Flash", description: "flash"}, 
+		{title: "Green Lantern", description: "lant"}, 
+		{title: "Green Arrow", description: "arrow"}
+	];

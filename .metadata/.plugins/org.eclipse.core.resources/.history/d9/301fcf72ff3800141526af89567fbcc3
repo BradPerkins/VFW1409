@@ -1,0 +1,153 @@
+//JSON Object
+var ships = {
+	"frigs":{
+		"theTitle": "Marvel",
+		"shipList": [
+			{
+				"name": "Spider-Man",
+				"description": "1",
+			},
+			{
+				"name": "Thor",
+				"description": "as",
+				
+			},
+			{
+				"name": "Iron Man",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Captain America",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Daredevil",
+				"description": "As a teena",
+				
+			}
+		]
+	},
+	"cruisers":{
+		"theTitle": "DC",
+		"shipList": [
+			{
+				"name": "Batman",
+				"description": "As a teenage boy, Peter Parker was bitten by a radioactive spider while attending a science experiment.  He was then given the spiders proportional strenght and agility, and the ability to stick to almost any surface.  He also gained a spider sense to give him an early warning of danger.",
+			},
+			{
+				"name": "Superman",
+				"description": "as",
+				
+			},
+			{
+				"name": "Flash",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Green Lantern",
+				"description": "As a teena",
+				
+			},
+			{
+				"name": "Green Arrow",
+				"description": "As a teena",
+				
+			}
+		]
+	}
+};
+
+var win1 = Ti.UI.createWindow({
+	title: "Super Heroes",
+	backgroundColor: "gray" 
+});
+
+var navWin = Ti.UI.iOS.createNavigationWindow({
+	window: win1
+});
+
+/*
+var titleBar = Ti.UI.createView({
+	height: 80,
+	backgroundColor: "white",
+	top: 20
+});
+
+var spacer1 = Ti.UI.createView({
+	height: 20,
+	backgroundColor: "#d80c0c",
+	top: titleBar.height + titleBar.top
+});
+
+var mainTitle = Ti.UI.createLabel({
+	text: "Super Heroes",
+	font: {fontSize: 40, fontStyle: "Helvetica", fontWeight: "bold"},
+	textAlign: "center"
+});
+
+var heroes = Ti.UI.createTableView({
+	top: spacer1.height + spacer1.top
+});
+
+if(Ti.Platform.name === "iPhone OS"){
+	heroes.style = Ti.UI.iPhone.TableViewStyle.GROUPED;
+};
+*/
+
+var makeUI = function(){
+	var spacing = 80;
+	for(n in ships){
+		var titleLabel = Ti.UI.createLabel({
+			text: ships[n].theTitle,
+			left: 15,
+			right: 15,
+			top: spacing,
+			height: 25,
+			backgroundColor: '#333',
+			font: {fontSize: 22, fontStyle: "Helvetica"},
+			color: "#fafafa",
+		});
+		
+		spacing = titleLabel.top + titleLabel.height + 10;
+		console.log(spacing);
+		for(m in ships[n].shipList){
+			var itemLabel = Ti.UI.createLabel({
+				text: ships[n].shipList[m].name,
+				details: ships[n].shipList[m].description,
+				left: 30,
+				right: 15,
+				top: spacing,
+				height: 25,
+				backgroundColor:"#ffffff",
+				font: {fontSize: 25, fontStyle: "Helvetica"},
+				color: "#333",
+				
+			});
+			win1.add(itemLabel);
+			spacing = itemLabel.top + itemLabel.height + 10;
+		}
+		win1.add(titleLabel);
+		spacing = itemLabel.top + itemLabel.height + 40;
+	}
+};
+
+makeUI();
+
+navWin.open();
+
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
